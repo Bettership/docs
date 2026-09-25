@@ -1,55 +1,29 @@
-# Mintlify Starter Kit
+# Bettership help center
 
-Use the starter kit to get your docs deployed and ready to customize.
+Source for [docs.bettership.ai](https://docs.bettership.ai), hosted by Mintlify.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## Preview and verify
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+Install the official Mintlify CLI (`npm install -g mint`), then run:
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
-
-## AI-assisted writing
-
-Set up your AI coding tool to work with Mintlify:
-
-```bash
-npx skills add https://mintlify.com/docs
-```
-
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
-
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
-npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
+```sh
 mint dev
+mint validate
+mint broken-links
 ```
 
-View your local preview at `http://localhost:3000`.
+`docs.json` lives at the root. The landing page is `index.mdx`; each topic has its own directory. The section pages are scaffolding for the article-writing task, not finished guides. Add articles to the existing sections and update `docs.json` as they are ready. Roadmap, feedback, and changelog pages belong to their follow-up tasks.
 
-## Publishing changes
+## Deployment
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+Mintlify workspace: `bettership-d7b13161`.
 
-## Need help?
+GitHub integration: `Bettership/docs`, branch `main`, with subdirectory mode off. Mintlify builds commits pushed to `main`. Use a feature branch and review changes before merging. Verify the resulting deployment in Mintlify Activity and on the public domain.
 
-### Troubleshooting
+On September 25, 2026, the dashboard showed the custom domain connected and the GitHub app installed. The live domain served the starter template before this change. A new deployment has not yet been verified for this branch.
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+## Search and plan
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+Use ordinary search on the free Starter plan. Mintlify's current pricing excludes AI Assistant from Starter; Pro is $450 per month. The dashboard showed an Assistant trial through October 5, 2026. The original issue's “Hobby, 5K credits/month” acceptance is outdated. See [Mintlify pricing](https://www.mintlify.com/pricing).
+
+Follow `AGENTS.md` for terminology, sources, and page verification.
