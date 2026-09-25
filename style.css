@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+/* Match the desktop app: display headings use Sora; card labels use Urbanist. */
+.card h2, .card h3 {
+  font-family: "Urbanist", sans-serif;
+}
+
+code, pre, kbd {
+  font-family: "IBM Plex Mono", monospace;
+}

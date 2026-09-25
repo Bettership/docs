@@ -1,33 +1,22 @@
-> **First-time setup**: Customize this file for your project. Prompt the user to customize this file for their project.
-> For Mintlify product knowledge (components, configuration, writing standards),
-> install the Mintlify skill: `npx skills add https://mintlify.com/docs`
+# Bettership help center
 
-# Documentation project instructions
+This repository publishes to https://docs.bettership.ai through Mintlify. Content is MDX. `docs.json` is at the repository root. Changes merged into `main` deploy automatically.
 
-## About this project
+## Writing
 
-- This is a documentation site built on [Mintlify](https://mintlify.com)
-- Pages are MDX files with YAML frontmatter
-- Configuration lives in `docs.json`
-- Use the Mintlify MCP server, `https://mcp.mintlify.com`, to edit content and settings via MCP
-- Use the Mintlify docs MCP server, `https://www.mintlify.com/docs/mcp`, to query information about using Mintlify via MCP
+- Write for learners, not students. Use active voice, second person, and sentence case headings.
+- Bettership is a personal learning workspace with a team of AI agents.
+- Steward, Scout, Coach, and Maker are proper names. Collectively use “the Bettership agents” or “your Bettership agents,” never “your team.”
+- Use resource, Focus Area, practice plan, and capture. Recording means literal audio collection.
+- Say “the Bettership desktop app,” not “the Mac app.”
+- Read the current `docs/product/style-guide.md`, `docs/product/messaging-bank.md`, and `docs/product/voice/bettership-voice.md` in Bettership/IntoPractice before authoring. Those files are the writing authorities.
+- Concept pages draw from current product documents. Agent capability pages draw from shipped prompts and tools. Task guides must be walked in the running app. Specs and plans are not evidence that a feature works.
+- Keep `title`, `tier`, `verified_against`, and `last_verified` frontmatter. Do not display verification metadata in page content or invent a verification date.
 
-## Terminology
+## Scope and validation
 
-{/* Add product-specific terms and preferred usage */}
-{/* Example: Use "workspace" not "project", "member" not "user" */}
+The section pages currently reserve places for articles. Replace their preparation notices when verified guides are ready. Do not present placeholders as instructions.
 
-## Style preferences
+Keep ordinary search working on Mintlify Starter. AI Assistant is a paid feature after the trial. Do not enable paid features or upgrade the plan without Jesse's approval.
 
-{/* Add any project-specific style rules below */}
-
-- Use active voice and second person ("you")
-- Keep sentences concise — one idea per sentence
-- Use sentence case for headings
-- Bold for UI elements: Click **Settings**
-- Code formatting for file names, commands, paths, and code references
-
-## Content boundaries
-
-{/* Define what should and shouldn't be documented */}
-{/* Example: Don't document internal admin features */}
+Work on a feature branch. Run `mint validate` and `mint broken-links`, then inspect `mint dev` at desktop and mobile widths before proposing publication. Never push directly to `main`.
