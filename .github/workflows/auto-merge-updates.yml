@@ -31,10 +31,13 @@ on:
     workflows: [Checks]
     types: [completed]
 
-# One run at a time, so two events for the same pull request cannot race to
-# arm and withdraw. A queued run waits rather than cancelling the one running.
+# One run at a time per head branch, so two events for the same pull request
+# cannot race to arm and withdraw, while an event for another pull request is
+# never queued behind it (GitHub keeps one pending run per group and drops the
+# rest, which could lose a "withdraw" for a different pull request). A queued
+# run waits rather than cancelling the one running.
 concurrency:
-  group: auto-merge-updates
+  group: auto-merge-updates-${{ github.event.pull_request.head.ref || github.event.workflow_run.head_branch || github.event.check_suite.head_branch || github.run_id }}
   cancel-in-progress: false
 
 permissions:
