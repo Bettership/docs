@@ -5,3 +5,6 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Page templates (copied by the drafting skill, never published)
+_templates/
