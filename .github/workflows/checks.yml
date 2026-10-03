@@ -1,0 +1,36 @@
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Lint and validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Test the lint script
+        run: npm test
+
+      - name: Lint the pages
+        run: node scripts/lint.mjs
+
+      - name: Validate the site
+        run: npx --yes mint validate
+
+      - name: Check for broken links
+        run: npx --yes mint broken-links
