@@ -15,7 +15,7 @@ base="${base%/}"
 
 pairs='
 /start-here /get-started/install-and-sign-in
-/how-bettership-works /get-started/install-and-sign-in
+/how-bettership-works /learn/how-your-library-inbox-and-wiki-fit-together
 /agents /get-started/the-four-agents
 /bringing-things-in /learn/how-your-library-inbox-and-wiki-fit-together
 /practicing-and-applying /practice/how-practice-works
