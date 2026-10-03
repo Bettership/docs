@@ -55,6 +55,7 @@ const FAILING = {
   'bad/title-pattern-fix.mdx': { rule: 'title-pattern', says: 'Install' },
   'bad/title-pattern-agent.mdx': { rule: 'title-pattern', says: 'Scout' },
   'bad/link-text-overlap.mdx': { rule: 'link-text', says: 'link text "Add resources"' },
+  'bad/link-text-partial-word.mdx': { rule: 'link-text', says: 'link text "Add a resources"' },
   'bad/link-text-no-page.mdx': { rule: 'link-text', says: 'no page at /learn/nowhere' },
   'bad/link-text-card.mdx': { rule: 'link-text', says: 'Adding things' },
   'bad/next-line-not-last.mdx': { rule: 'next-line', says: 'last' },
@@ -184,6 +185,13 @@ describe('review focus cases', () => {
     const hit = forFile('bad/link-text-overlap.mdx').find((f) => f.rule === 'link-text');
     assert.ok(hit, 'no link-text finding');
     assert.equal(hit.line, 10, 'the finding is not on the overlapping link');
+  });
+
+  test('a title that runs into a longer word is not a whole phrase', () => {
+    // "Add a resources" contains "Add a resource", but a letter follows it.
+    const hits = forFile('bad/link-text-partial-word.mdx').filter((f) => f.rule === 'link-text');
+    assert.equal(hits.length, 1, 'expected exactly one link-text finding');
+    assert.equal(hits[0].line, 10, 'the finding is not on the partial-word link');
   });
 
   test('findings carry the line of the offending text', () => {
