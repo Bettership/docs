@@ -3,7 +3,9 @@ name: Auto-merge updates
 # An `update` pull request (a factual update to an existing page) merges itself
 # once the checks in checks.yml pass. A pull request that also carries `new` or
 # `hold-for-release` never does: `new` waits for Jesse's review, and
-# `hold-for-release` waits for the release step.
+# `hold-for-release` waits for the release step. Nor does one whose body has
+# an `## Open blocks` section: a page the cold reader still finds blocking goes
+# to Jesse, even if the `new` label was missed.
 #
 # Auto-merge is switched on only while a pull request qualifies and its checks
 # are green, and switched off whenever either stops being true (a new commit,
@@ -61,7 +63,7 @@ jobs:
 
           for pr in $prs; do
             info=$(gh pr view "$pr" --repo "$REPO" \
-              --json state,labels,headRefOid,baseRefName,isCrossRepository,autoMergeRequest)
+              --json state,labels,headRefOid,baseRefName,isCrossRepository,autoMergeRequest,body)
             state=$(jq -r '.state' <<<"$info")
             base=$(jq -r '.baseRefName' <<<"$info")
             cross=$(jq -r '.isCrossRepository' <<<"$info")
@@ -78,6 +80,9 @@ jobs:
             if ! has update; then qualifies=no; reason="no update label"; fi
             if has new; then qualifies=no; reason="carries new"; fi
             if has hold-for-release; then qualifies=no; reason="carries hold-for-release"; fi
+            if jq -r '.body // ""' <<<"$info" | grep -qE '^## Open blocks'; then
+              qualifies=no; reason="body has an Open blocks section"
+            fi
 
             conclusion=$(gh api "repos/$REPO/commits/$sha/check-runs?per_page=100" \
               --jq "[.check_runs[] | select(.name == \"$CHECK_NAME\")] | sort_by(.started_at) | last | .conclusion // \"none\"")
