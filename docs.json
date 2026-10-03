@@ -35,6 +35,13 @@
         ]
       },
       {
+        "group": "Focus",
+        "pages": [
+          "focus/focus-areas",
+          "focus/ask-steward"
+        ]
+      },
+      {
         "group": "Learn",
         "pages": [
           "learn/how-your-library-inbox-and-wiki-fit-together",
@@ -57,13 +64,6 @@
         "pages": [
           "apply/prompts-context-packs-and-skills",
           "apply/apply-with-maker"
-        ]
-      },
-      {
-        "group": "Focus",
-        "pages": [
-          "focus/focus-areas",
-          "focus/ask-steward"
         ]
       },
       {
