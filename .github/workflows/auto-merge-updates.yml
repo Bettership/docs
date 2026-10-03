@@ -1,0 +1,137 @@
+name: Auto-merge updates
+
+# An `update` pull request (a factual update to an existing page) merges itself
+# once the checks in checks.yml pass. A pull request that also carries `new` or
+# `hold-for-release` never does: `new` waits for Jesse's review, and
+# `hold-for-release` waits for the release step. Nor does one whose body has
+# an `## Open blocks` section: a page the cold reader still finds blocking goes
+# to Jesse, even if the `new` label was missed. Nor does one whose body has no
+# `## Walk` or `## Evidence` section (the drafting run recorded no walk), or
+# one that changes anything besides pages (`*.mdx`), `docs.json`, and
+# `images/`. A change to the workflows, scripts, or config always gets a person.
+#
+# Auto-merge is switched on only while a pull request qualifies and its checks
+# are green, and switched off whenever either stops being true (a new commit,
+# a removed `update` label, an added `hold-for-release`). So a merge never rides
+# on a stale green, even before branch protection requires the check.
+#
+# Triggers: label, body, and commit changes arrive as `pull_request` (`edited`
+# covers a body edit that adds or removes a section). A finished
+# checks.yml run arrives as `workflow_run`, because GitHub does not send
+# `check_suite` events for check suites that Actions itself created. The
+# `check_suite` trigger stays for checks from other apps. The last two only run
+# from the copy of this file on `main`.
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, labeled, unlabeled, synchronize]
+  check_suite:
+    types: [completed]
+  workflow_run:
+    workflows: [Checks]
+    types: [completed]
+
+# One run at a time per head branch, so two events for the same pull request
+# cannot race to arm and withdraw, while an event for another pull request is
+# never queued behind it (GitHub keeps one pending run per group and drops the
+# rest, which could lose a "withdraw" for a different pull request). A queued
+# run waits rather than cancelling the one running.
+concurrency:
+  group: auto-merge-updates-${{ github.event.pull_request.head.ref || github.event.workflow_run.head_branch || github.event.check_suite.head_branch || github.run_id }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+jobs:
+  auto-merge:
+    name: Enable or withdraw auto-merge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decide for each pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          EVENT: ${{ github.event_name }}
+          PR_FROM_EVENT: ${{ github.event.pull_request.number }}
+          PRS_FROM_RUN: ${{ toJson(github.event.workflow_run.pull_requests) }}
+          PRS_FROM_SUITE: ${{ toJson(github.event.check_suite.pull_requests) }}
+          CHECK_NAME: Lint and validate
+        run: |
+          set -euo pipefail
+
+          case "$EVENT" in
+            pull_request) prs="$PR_FROM_EVENT" ;;
+            workflow_run) prs=$(jq -r '.[]?.number' <<<"$PRS_FROM_RUN") ;;
+            check_suite) prs=$(jq -r '.[]?.number' <<<"$PRS_FROM_SUITE") ;;
+            *) prs="" ;;
+          esac
+
+          if [ -z "$prs" ]; then
+            echo "No pull request on this event."
+            exit 0
+          fi
+
+          for pr in $prs; do
+            info=$(gh pr view "$pr" --repo "$REPO" \
+              --json state,labels,headRefOid,baseRefName,isCrossRepository,autoMergeRequest,body)
+            state=$(jq -r '.state' <<<"$info")
+            base=$(jq -r '.baseRefName' <<<"$info")
+            cross=$(jq -r '.isCrossRepository' <<<"$info")
+            sha=$(jq -r '.headRefOid' <<<"$info")
+            armed=$(jq -r 'if .autoMergeRequest then "yes" else "no" end' <<<"$info")
+            labels=$(jq -r '[.labels[].name] | join(",")' <<<"$info")
+            has() { [[ ",$labels," == *",$1,"* ]]; }
+
+            qualifies=yes
+            reason=""
+            if [ "$state" != "OPEN" ]; then qualifies=no; reason="not open"; fi
+            if [ "$base" != "main" ]; then qualifies=no; reason="base is $base, not main"; fi
+            if [ "$cross" = "true" ]; then qualifies=no; reason="opened from a fork"; fi
+            if ! has update; then qualifies=no; reason="no update label"; fi
+            if has new; then qualifies=no; reason="carries new"; fi
+            if has hold-for-release; then qualifies=no; reason="carries hold-for-release"; fi
+            if ! jq -e '(.body // "") | test("(?m)^## (Walk|Evidence)")' <<<"$info" >/dev/null; then
+              qualifies=no; reason="body records no walk or evidence (no ## Walk or ## Evidence section)"
+            fi
+            if jq -e '(.body // "") | test("(?m)^## Open blocks")' <<<"$info" >/dev/null; then
+              qualifies=no; reason="body has an Open blocks section"
+            fi
+
+            # Only page files, docs.json, and images may auto-merge. The REST
+            # list is paginated, so a long pull request cannot hide a file past
+            # the first page.
+            files=$(gh api --paginate "repos/$REPO/pulls/$pr/files" --jq '.[].filename')
+            outside=""
+            while IFS= read -r f; do
+              [ -z "$f" ] && continue
+              case "$f" in
+                *.mdx|docs.json|images/*) ;;
+                *) outside="$f"; break ;;
+              esac
+            done <<<"$files"
+            if [ -n "$outside" ]; then
+              qualifies=no; reason="changes $outside, which is not a page, docs.json, or an image"
+            fi
+
+            conclusion=$(gh api "repos/$REPO/commits/$sha/check-runs?per_page=100" \
+              --jq "[.check_runs[] | select(.name == \"$CHECK_NAME\")] | sort_by(.started_at) | last | .conclusion // \"none\"")
+
+            echo "PR #$pr: labels [$labels], base $base, checks $conclusion, auto-merge armed $armed"
+
+            if [ "$qualifies" = yes ] && [ "$conclusion" = success ]; then
+              if [ "$armed" = no ]; then
+                echo "Enabling squash auto-merge."
+                gh pr merge "$pr" --repo "$REPO" --auto --squash
+              fi
+            else
+              [ "$qualifies" = no ] && echo "Does not qualify: $reason."
+              [ "$qualifies" = yes ] && echo "Qualifies, waiting for green checks."
+              if [ "$armed" = yes ] && [ "$state" = OPEN ]; then
+                echo "Withdrawing auto-merge."
+                gh pr merge "$pr" --repo "$REPO" --disable-auto
+              fi
+            fi
+          done
