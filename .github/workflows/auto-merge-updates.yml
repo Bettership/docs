@@ -5,14 +5,18 @@ name: Auto-merge updates
 # `hold-for-release` never does: `new` waits for Jesse's review, and
 # `hold-for-release` waits for the release step. Nor does one whose body has
 # an `## Open blocks` section: a page the cold reader still finds blocking goes
-# to Jesse, even if the `new` label was missed.
+# to Jesse, even if the `new` label was missed. Nor does one whose body has no
+# `## Walk` or `## Evidence` section (the drafting run recorded no walk), or
+# one that changes anything besides pages (`*.mdx`), `docs.json`, and
+# `images/`. A change to the workflows, scripts, or config always gets a person.
 #
 # Auto-merge is switched on only while a pull request qualifies and its checks
 # are green, and switched off whenever either stops being true (a new commit,
 # a removed `update` label, an added `hold-for-release`). So a merge never rides
 # on a stale green, even before branch protection requires the check.
 #
-# Triggers: label and commit changes arrive as `pull_request`. A finished
+# Triggers: label, body, and commit changes arrive as `pull_request` (`edited`
+# covers a body edit that adds or removes a section). A finished
 # checks.yml run arrives as `workflow_run`, because GitHub does not send
 # `check_suite` events for check suites that Actions itself created. The
 # `check_suite` trigger stays for checks from other apps. The last two only run
@@ -20,12 +24,18 @@ name: Auto-merge updates
 
 on:
   pull_request:
-    types: [opened, reopened, labeled, unlabeled, synchronize]
+    types: [opened, reopened, edited, labeled, unlabeled, synchronize]
   check_suite:
     types: [completed]
   workflow_run:
     workflows: [Checks]
     types: [completed]
+
+# One run at a time, so two events for the same pull request cannot race to
+# arm and withdraw. A queued run waits rather than cancelling the one running.
+concurrency:
+  group: auto-merge-updates
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -80,8 +90,27 @@ jobs:
             if ! has update; then qualifies=no; reason="no update label"; fi
             if has new; then qualifies=no; reason="carries new"; fi
             if has hold-for-release; then qualifies=no; reason="carries hold-for-release"; fi
-            if jq -r '.body // ""' <<<"$info" | grep -qE '^## Open blocks'; then
+            if ! jq -e '(.body // "") | test("(?m)^## (Walk|Evidence)")' <<<"$info" >/dev/null; then
+              qualifies=no; reason="body records no walk or evidence (no ## Walk or ## Evidence section)"
+            fi
+            if jq -e '(.body // "") | test("(?m)^## Open blocks")' <<<"$info" >/dev/null; then
               qualifies=no; reason="body has an Open blocks section"
+            fi
+
+            # Only page files, docs.json, and images may auto-merge. The REST
+            # list is paginated, so a long pull request cannot hide a file past
+            # the first page.
+            files=$(gh api --paginate "repos/$REPO/pulls/$pr/files" --jq '.[].filename')
+            outside=""
+            while IFS= read -r f; do
+              [ -z "$f" ] && continue
+              case "$f" in
+                *.mdx|docs.json|images/*) ;;
+                *) outside="$f"; break ;;
+              esac
+            done <<<"$files"
+            if [ -n "$outside" ]; then
+              qualifies=no; reason="changes $outside, which is not a page, docs.json, or an image"
             fi
 
             conclusion=$(gh api "repos/$REPO/commits/$sha/check-runs?per_page=100" \
