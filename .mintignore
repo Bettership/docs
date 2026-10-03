@@ -8,3 +8,6 @@ drafts/
 
 # Page templates (copied by the drafting skill, never published)
 _templates/
+
+# Lint script, its tests, and its fixture pages (never published)
+scripts/

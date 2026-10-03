@@ -1,0 +1,16 @@
+{
+  "name": "bettership-help-center",
+  "private": true,
+  "type": "module",
+  "description": "Checks for the Bettership help center pages.",
+  "scripts": {
+    "test": "node --test scripts/*.test.mjs",
+    "lint": "node scripts/lint.mjs"
+  },
+  "dependencies": {
+    "yaml": "^2.9.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
