@@ -14,7 +14,7 @@ Read both before writing or editing a page. If a rule is not in them, it is not 
 In this repository:
 
 - `_templates/` holds one skeleton per kind. Copy the one you need and fill it in.
-- `scripts/lint.mjs` holds the mechanical checks. It enforces the style guides' word rules and formatting rules, so you do not need to memorize them.
+- `scripts/lint.mjs` holds the mechanical checks. It catches the rules a script can check, such as banned words and formatting. The style guides remain the authority, so a page that passes the lint can still break a rule.
 
 ## The five kinds
 
@@ -43,10 +43,10 @@ Each `checked_against` entry starts with a prefix: `app` and a desktop version, 
 
 Work on a feature branch and open a pull request. Never push to `main`. Merging to `main` publishes the site.
 
-Label every pull request with one of three labels:
+Label every pull request with `new` or `update`, and add `hold-for-release` when the feature has not reached learners:
 
 - `new`: a new article or idea page. Jesse merges after his review.
-- `update`: a factual update to an existing page. It auto-merges when the checks are green.
+- `update`: a factual update to an existing page. It auto-merges only when the checks are green, the body has a `## Walk` or `## Evidence` section recording the walk or evidence, and every changed file is a page (`.mdx`), `docs.json`, or an image under `images/`. Anything else waits for a person.
 - `hold-for-release`: the feature is not yet in a release. The release step merges it, and nobody merges it early.
 
 A page for a feature that has not reached learners is opened on a `hold-for-release` pull request. Do not merge it early.
@@ -66,7 +66,7 @@ npx mint dev                        # preview locally
 bash scripts/check-redirects.sh     # after a deploy, check the old addresses redirect
 ```
 
-`.github/workflows/checks.yml` runs `npm test`, the lint, `mint validate`, and `mint broken-links` on every pull request. A pull request does not merge until they pass.
+`.github/workflows/checks.yml` runs `npm test`, the lint, `mint validate`, and `mint broken-links` on every pull request. An `update` pull request auto-merges only when they pass and the body records the walk or evidence. `main` should require the Checks workflow.
 
 ## Repository rules
 

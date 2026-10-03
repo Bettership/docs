@@ -40,10 +40,10 @@ After a deploy, `bash scripts/check-redirects.sh` confirms that the old addresse
 
 Mintlify is connected to `Bettership/docs`, branch `main`, with subdirectory mode off. Merging to `main` deploys the site. Work on a feature branch and open a pull request, and never push to `main`. Verify a deploy in Mintlify Activity and on the public domain.
 
-Every pull request carries one label. [AGENTS.md](AGENTS.md) has the details.
+Every pull request carries `new` or `update`, plus `hold-for-release` when the feature has not reached learners. [AGENTS.md](AGENTS.md) has the details.
 
 - `new`: a new article or idea page. Jesse merges it after review.
-- `update`: a factual update to an existing page. It auto-merges when the checks are green.
+- `update`: a factual update to an existing page. It auto-merges when the checks are green and the body records the walk or evidence in a `## Walk` or `## Evidence` section, as long as it changes only pages, `docs.json`, and images.
 - `hold-for-release`: the feature is not yet in a release. The release step merges it.
 
 ## Search and plan
