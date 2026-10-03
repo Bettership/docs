@@ -27,71 +27,59 @@
   "navigation": {
     "groups": [
       {
-        "group": "Help center",
+        "group": "Get started",
         "pages": [
-          "index"
+          "get-started/install-and-sign-in",
+          "get-started/your-first-week",
+          "get-started/the-four-agents"
         ]
       },
       {
-        "group": "Start here",
+        "group": "Learn",
         "pages": [
-          "start-here/index",
-          "start-here/what-bettership-is",
-          "start-here/meet-the-agents",
-          "start-here/your-first-week"
+          "learn/how-your-library-inbox-and-wiki-fit-together",
+          "learn/add-a-resource",
+          "learn/capture-something-live",
+          "learn/organize-with-collections",
+          "learn/read-a-resource",
+          "learn/learn-with-scout"
         ]
       },
       {
-        "group": "How Bettership works",
+        "group": "Practice",
         "pages": [
-          "how-bettership-works/index",
-          "how-bettership-works/focus-areas",
-          "how-bettership-works/library-and-inbox",
-          "how-bettership-works/the-wiki",
-          "how-bettership-works/the-practice-loop",
-          "how-bettership-works/what-you-keep"
+          "practice/how-practice-works",
+          "practice/practice-with-coach"
         ]
       },
       {
-        "group": "Your Bettership agents",
+        "group": "Apply",
         "pages": [
-          "agents/index",
-          "agents/steward",
-          "agents/scout",
-          "agents/coach",
-          "agents/maker"
+          "apply/prompts-context-packs-and-skills",
+          "apply/apply-with-maker"
         ]
       },
       {
-        "group": "Bringing things in",
+        "group": "Focus",
         "pages": [
-          "bringing-things-in/index",
-          "bringing-things-in/add-a-resource",
-          "bringing-things-in/capture-a-session",
-          "bringing-things-in/what-happens-after",
-          "bringing-things-in/collections"
+          "focus/focus-areas",
+          "focus/ask-steward"
         ]
       },
       {
-        "group": "Practicing and applying",
+        "group": "Account and privacy",
         "pages": [
-          "practicing-and-applying/index"
-        ]
-      },
-      {
-        "group": "Your account",
-        "pages": [
-          "account/index",
-          "account/settings",
+          "account/where-every-setting-lives",
           "account/your-data-and-privacy"
         ]
       },
       {
-        "group": "Troubleshooting",
+        "group": "Fix a problem",
         "pages": [
-          "troubleshooting/index",
-          "troubleshooting/install-and-permissions",
-          "troubleshooting/getting-help"
+          "fix/install-update-and-permission-problems",
+          "fix/a-resource-didnt-process",
+          "fix/a-capture-didnt-save",
+          "fix/contact-support"
         ]
       }
     ]
@@ -111,8 +99,168 @@
   },
   "redirects": [
     {
+      "source": "/start-here",
+      "destination": "/get-started/install-and-sign-in",
+      "permanent": true
+    },
+    {
+      "source": "/how-bettership-works",
+      "destination": "/get-started/install-and-sign-in",
+      "permanent": true
+    },
+    {
+      "source": "/agents",
+      "destination": "/get-started/the-four-agents",
+      "permanent": true
+    },
+    {
+      "source": "/bringing-things-in",
+      "destination": "/learn/how-your-library-inbox-and-wiki-fit-together",
+      "permanent": true
+    },
+    {
+      "source": "/practicing-and-applying",
+      "destination": "/practice/how-practice-works",
+      "permanent": true
+    },
+    {
+      "source": "/account",
+      "destination": "/account/where-every-setting-lives",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting",
+      "destination": "/fix/install-update-and-permission-problems",
+      "permanent": true
+    },
+    {
+      "source": "/start-here/what-bettership-is",
+      "destination": "/get-started/install-and-sign-in",
+      "permanent": true
+    },
+    {
+      "source": "/start-here/meet-the-agents",
+      "destination": "/get-started/the-four-agents",
+      "permanent": true
+    },
+    {
+      "source": "/start-here/your-first-week",
+      "destination": "/get-started/your-first-week",
+      "permanent": true
+    },
+    {
+      "source": "/how-bettership-works/focus-areas",
+      "destination": "/focus/focus-areas",
+      "permanent": true
+    },
+    {
+      "source": "/how-bettership-works/library-and-inbox",
+      "destination": "/learn/how-your-library-inbox-and-wiki-fit-together",
+      "permanent": true
+    },
+    {
+      "source": "/how-bettership-works/the-wiki",
+      "destination": "/learn/how-your-library-inbox-and-wiki-fit-together",
+      "permanent": true
+    },
+    {
+      "source": "/how-bettership-works/the-practice-loop",
+      "destination": "/practice/how-practice-works",
+      "permanent": true
+    },
+    {
+      "source": "/how-bettership-works/what-you-keep",
+      "destination": "/apply/prompts-context-packs-and-skills",
+      "permanent": true
+    },
+    {
+      "source": "/agents/steward",
+      "destination": "/focus/ask-steward",
+      "permanent": true
+    },
+    {
+      "source": "/agents/scout",
+      "destination": "/learn/learn-with-scout",
+      "permanent": true
+    },
+    {
+      "source": "/agents/coach",
+      "destination": "/practice/practice-with-coach",
+      "permanent": true
+    },
+    {
+      "source": "/agents/maker",
+      "destination": "/apply/apply-with-maker",
+      "permanent": true
+    },
+    {
+      "source": "/bringing-things-in/add-a-resource",
+      "destination": "/learn/add-a-resource",
+      "permanent": true
+    },
+    {
+      "source": "/bringing-things-in/capture-a-session",
+      "destination": "/learn/capture-something-live",
+      "permanent": true
+    },
+    {
+      "source": "/bringing-things-in/what-happens-after",
+      "destination": "/learn/read-a-resource",
+      "permanent": true
+    },
+    {
+      "source": "/bringing-things-in/collections",
+      "destination": "/learn/organize-with-collections",
+      "permanent": true
+    },
+    {
+      "source": "/account/settings",
+      "destination": "/account/where-every-setting-lives",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting/install-and-permissions",
+      "destination": "/get-started/install-and-sign-in",
+      "permanent": true
+    },
+    {
+      "source": "/troubleshooting/getting-help",
+      "destination": "/fix/contact-support",
+      "permanent": true
+    },
+    {
       "source": "/quickstart",
-      "destination": "/start-here",
+      "destination": "/get-started/install-and-sign-in",
+      "permanent": true
+    },
+    {
+      "source": "/get-started",
+      "destination": "/get-started/install-and-sign-in",
+      "permanent": true
+    },
+    {
+      "source": "/learn",
+      "destination": "/learn/how-your-library-inbox-and-wiki-fit-together",
+      "permanent": true
+    },
+    {
+      "source": "/practice",
+      "destination": "/practice/how-practice-works",
+      "permanent": true
+    },
+    {
+      "source": "/apply",
+      "destination": "/apply/prompts-context-packs-and-skills",
+      "permanent": true
+    },
+    {
+      "source": "/focus",
+      "destination": "/focus/focus-areas",
+      "permanent": true
+    },
+    {
+      "source": "/fix",
+      "destination": "/fix/install-update-and-permission-problems",
       "permanent": true
     }
   ],
