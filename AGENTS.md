@@ -5,7 +5,7 @@ This repository publishes to https://docs.bettership.ai through Mintlify. Conten
 ## Writing
 
 - Write for learners, not students. Use active voice, second person, and sentence case headings.
-- Bettership is a personal learning workspace with a team of AI agents.
+- Bettership is a personal AI workspace for ambitious professionals leveling up with online learning.
 - Steward, Scout, Coach, and Maker are proper names. Collectively use “the Bettership agents” or “your Bettership agents,” never “your team.”
 - Use resource, Focus Area, practice plan, and capture. Recording means literal audio collection.
 - Say “the Bettership desktop app,” not “the Mac app.”
