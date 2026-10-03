@@ -72,6 +72,7 @@ const FAILING = {
   'bad/banned-word-simply.mdx': { rule: 'banned-word', says: 'simply' },
   'bad/banned-word-cannot.mdx': { rule: 'banned-word', says: 'cannot' },
   'bad/banned-word-descriptor.mdx': { rule: 'banned-word', says: 'retired descriptor' },
+  'bad/banned-word-control-verbs.mdx': { rule: 'banned-word', says: 'say "choose"' },
   'bad/em-dash.mdx': { rule: 'em-dash', says: 'em dash' },
   'bad/semicolon.mdx': { rule: 'semicolon', says: 'semicolon' },
 };
@@ -192,6 +193,12 @@ describe('review focus cases', () => {
     const hits = forFile('bad/link-text-partial-word.mdx').filter((f) => f.rule === 'link-text');
     assert.equal(hits.length, 1, 'expected exactly one link-text finding');
     assert.equal(hits[0].line, 10, 'the finding is not on the partial-word link');
+  });
+
+  test('each control word the style guide replaces is caught, and only those', () => {
+    const words = forFile('bad/banned-word-control-verbs.mdx').map((f) => f.message.match(/^"([^"]+)"/)[1]);
+    // "clickable", "blog in", "catalog in", and "stapler" on the same page must not fire.
+    assert.deepEqual(words, ['Click', 'tap', 'clicked', 'log in', 'Enable', 'disable', 'toggle', 'changelog']);
   });
 
   test('findings carry the line of the offending text', () => {

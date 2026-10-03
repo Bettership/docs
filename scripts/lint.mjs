@@ -117,6 +117,12 @@ const BANNED = [
   { re: /\bjust\b/gi, why: 'drop "just"' },
   { re: /\ba personal learning workspace with a team of AI agents\b/gi, why: 'is the retired descriptor' },
   { re: new RegExp(`\\b(?:${HYPE.join('|')})\\b`, 'gi'), why: 'is a banned hype word' },
+  // Style guide section 6, the "Not" words a script can catch without false
+  // alarms. Bare "login" is left out: the app's own control is "Open at login".
+  { re: /\b(?:click(?:s|ed|ing)?|tap(?:s|ped|ping)?)\b/gi, why: 'say "choose"' },
+  { re: /\blog(?:s|ged|ging)?[ -]in\b/gi, why: 'say "sign in"' },
+  { re: /\b(?:enabl|disabl|toggl)(?:e|es|ed|ing)\b/gi, why: 'say "turn on" or "turn off"' },
+  { re: /\bchangelogs?\b/gi, why: 'say "What\'s new"' },
 ];
 const CANNOT = /\bcannot\b/gi;
 const CANT = /\bcan['’]t\b/i;
