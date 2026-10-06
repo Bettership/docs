@@ -67,6 +67,12 @@
         ]
       },
       {
+        "group": "Plans and billing",
+        "pages": [
+          "plans/how-credits-work"
+        ]
+      },
+      {
         "group": "Account and privacy",
         "pages": [
           "account/where-every-setting-lives",
