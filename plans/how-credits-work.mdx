@@ -1,0 +1,98 @@
+---
+title: How credits work
+description: What credits pay for, how many each plan includes, and what happens when you run out.
+kind: idea
+checked_against:
+  - doc docs/strategy/ai-monetization.md
+  - file apps/api/app/services/billing_usage_pricing.py
+  - file apps/api/app/services/billing_usage.py
+  - file apps/api/app/services/artifact_production.py
+  - file apps/api/app/agents/billing_reads.py
+  - file apps/api/app/agents/detail_reads.py
+  - file apps/api/app/steward/system_prompt_v2.md
+  - file apps/desktop/src/renderer/components/shell/ProfileMenu.tsx
+  - file apps/desktop/src/renderer/components/settings/registry.ts
+  - file apps/desktop/src/renderer/pages/settings/SettingsUsagePage.tsx
+checked_on: 2026-10-06
+---
+
+Credits pay for bringing things into Bettership and for making things. Talking with the agents and practicing don't use them.
+
+Adding a podcast, recording a course session, and asking Coach for a cheat sheet each use credits. Asking Coach about the session afterward, or running a rep on it, costs nothing.
+
+## What uses credits
+
+<table>
+  <colgroup>
+    <col width="240" />
+    <col width="253" />
+    <col width="224" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>What you do</th>
+      <th>Credits</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Add a resource</td>
+      <td>Less for a short post, more for a long book or episode</td>
+      <td>Short article = 1/2 credit<br />2-hour podcast = about 4 credits</td>
+    </tr>
+    <tr>
+      <td>Live capture</td>
+      <td>By how long it runs</td>
+      <td>1-hour session = 3 credits<br />Under a minute = no credits</td>
+    </tr>
+    <tr>
+      <td>Maker Studio items (prompts, context packs, and skills)</td>
+      <td>A few credits, more for a bigger item like a skill</td>
+      <td>Prompt = 1 credit<br />Skill = 3 credits</td>
+    </tr>
+    <tr>
+      <td>Make practice materials with Coach</td>
+      <td>A few credits, more for a study guide than a cheat sheet</td>
+      <td>Cheat sheet = 1 credit<br />Study guide = 2 credits</td>
+    </tr>
+    <tr>
+      <td>Chat with any agent</td>
+      <td>No credits</td>
+      <td>Any chat = no credits</td>
+    </tr>
+  </tbody>
+</table>
+
+Practice materials a playbook prepares on its own cost nothing. Each exact cost shows once the work is done, in Usage.
+
+A capture is charged once, when it's saved, and its cost shows on the capture's page. You can start one with any credits left. With none, it doesn't start, and the app offers extra credits or a plan instead. A capture that runs out of credits partway still finishes in full, and the extra time costs nothing.
+
+## What each plan includes
+
+| Plan | Credits | Unused credits you can carry over |
+| --- | --- | --- |
+| Starter | 15, once | None |
+| Core | 25 a month | None |
+| Plus | 75 a month | Up to 40 |
+| Max | 200 a month | Up to 100 |
+
+Kept credits are spent before the new month's. Starter also includes 15 agent conversations, counted apart from credits, and after those, talking with the agents needs a paid plan.
+
+## Extra credits
+
+On a paid plan, you can buy **extra credits** 20 at a time, from **See plans** in Usage or when you run out. They're spent last, after your monthly and kept credits, and they don't expire while you're subscribed. A pause holds them until you resume. When a plan ends, any left end with it.
+
+You can't buy them on Starter, during a pause, after you've cancelled, or while a payment is failing.
+
+## When you run out
+
+Nothing is lost. A resource that needs more credits than you have keeps its place in your Library and reads "Waiting for credits," with what it needs. It finishes on its own once credits arrive, from extra credits, your monthly credits, or resuming a paused plan. There's no need to add it again or retry it.
+
+Your Library stays open, and the agents and practice keep working, because they don't use credits. To get more sooner, buy extra credits or change your plan.
+
+## Where to see your balance
+
+Choose your name at the bottom of the sidebar. The menu that opens shows your balance beside **Usage**. Choosing **Usage** opens **Settings → Account → Usage**, which lists what each credit went to.
+
+**Next:** [Ask Steward](/focus/ask-steward)
