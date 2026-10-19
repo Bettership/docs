@@ -40,7 +40,7 @@ const TASK_VERBS = [
   'Add', 'Save', 'Capture', 'Follow', 'Organize', 'Read', 'Explore', 'Run',
   'Set', 'Make', 'Use', 'Change', 'See', 'Delete', 'Reset', 'Contact',
   'Install', 'Review', 'Open', 'Find', 'Choose', 'Start', 'Finish',
-  'Download', 'Export', 'Turn', 'Check',
+  'Download', 'Export', 'Turn', 'Check', 'Send',
 ];
 
 // An agent page takes the name of its page in the app.
