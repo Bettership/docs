@@ -280,5 +280,18 @@
       "family": "Urbanist",
       "weight": 400
     }
+  },
+  "footer": {
+    "links": [
+      {
+        "header": "Support",
+        "items": [
+          {
+            "label": "support@bettership.ai",
+            "href": "mailto:support@bettership.ai"
+          }
+        ]
+      }
+    ]
   }
 }
