@@ -88,7 +88,8 @@
           "fix/install-update-and-permission-problems",
           "fix/a-resource-didnt-process",
           "fix/a-capture-didnt-save",
-          "fix/contact-support"
+          "fix/contact-support",
+          "fix/send-feedback"
         ]
       }
     ]
