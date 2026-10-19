@@ -4,7 +4,6 @@ Captured from Bettership Staging 0.0.1-staging.12 on 2026-09-25 through the nati
 
 - add-resource.png: empty Add resource dialog, Link tab.
 - resource-views.png: Summary, Transcript, and Scout's report tabs from an existing podcast resource. Crop excludes the resource content and account details.
-- capture-controls.png: paused capture footer, including Resume and Finish capture. Does not show the active Pause state.
 - add-to-collection.png: resource metadata controls, including + Collection.
 
 No account identifiers, chat history, private notes, transcript text, or recording content is included. Empty forms were closed without saving. The already-paused capture was not resumed, finished, or discarded.
