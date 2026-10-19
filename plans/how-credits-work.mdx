@@ -6,6 +6,7 @@ checked_against:
   - doc docs/strategy/ai-monetization.md
   - file apps/api/app/services/billing_usage_pricing.py
   - file apps/api/app/services/billing_usage.py
+  - file apps/api/app/services/billing_plan_state.py
   - file apps/api/app/services/artifact_production.py
   - file apps/api/app/agents/billing_reads.py
   - file apps/api/app/agents/detail_reads.py
@@ -15,7 +16,7 @@ checked_against:
   - file apps/desktop/src/renderer/components/settings/registry.ts
   - file apps/desktop/src/renderer/pages/settings/SettingsUsagePage.tsx
   - file apps/desktop/src/renderer/lib/billingPage.ts
-checked_on: 2026-10-16
+checked_on: 2026-10-19
 ---
 
 Credits pay for bringing things into Bettership and for making things. Talking with the agents and practicing don't use them.
@@ -85,16 +86,16 @@ Kept credits are spent before the new month's. Starter also includes 15 agent co
 
 On a paid plan, buy **extra credits** 20 at a time with **Buy** in **Settings → Account → Billing & plans**, or when you run out. They're spent after your monthly and kept credits, and they don't expire while you're subscribed. A pause holds them until you resume. When a plan ends, any left end with it.
 
-You can't buy them on Starter, during a pause, after you've cancelled, or while a payment is failing.
+You can't buy them on Starter, with beta access, once a pause is scheduled or running, after you've cancelled, or while a payment is failing.
 
 ## When you run out
 
 Nothing is lost. A resource that needs more credits than you have keeps its place in your Library and reads "Waiting for credits," with what it needs. It finishes on its own once credits arrive, from extra credits, your monthly credits, or resuming a paused plan. There's no need to add it again or retry it.
 
-Your Library stays open, and the agents and practice keep working, because they don't use credits. To get more sooner, buy extra credits or change your plan.
+Your Library stays open, and the agents and practice keep working. To get more sooner, buy extra credits or change your plan.
 
 ## Where to see your balance
 
-Choose your name at the bottom of the sidebar. The menu that opens shows your balance beside **Usage**. Choosing **Usage** opens **Settings → Account → Usage**, which lists what each credit went to.
+Choose your name at the bottom of the sidebar. The menu shows your balance beside **Usage**. Choosing **Usage** opens **Settings → Account → Usage**, which lists what each credit went to.
 
 **Next:** [Ask Steward](/focus/ask-steward)
