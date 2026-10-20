@@ -12,5 +12,8 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "mint": "4.2.1072"
   }
 }

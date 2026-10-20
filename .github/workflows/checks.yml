@@ -29,8 +29,9 @@ jobs:
       - name: Lint the pages
         run: node scripts/lint.mjs
 
+      # mint is pinned in package.json because its newest release can need parts npm does not have yet. Bump it on purpose.
       - name: Validate the site
-        run: npx --yes mint validate
+        run: npx --no-install mint validate
 
       - name: Check for broken links
-        run: npx --yes mint broken-links
+        run: npx --no-install mint broken-links
