@@ -13,12 +13,11 @@ The source of [docs.bettership.ai](https://docs.bettership.ai), the help center 
 
 ## Run it locally
 
-Install the dependencies and the official Mintlify CLI, then preview:
+Install the dependencies, which include a pinned version of the official Mintlify CLI, then preview:
 
 ```sh
 npm ci
-npm install -g mint
-mint dev
+npx mint dev
 ```
 
 To check your work the way CI does:
@@ -34,7 +33,7 @@ After a deploy, `bash scripts/check-redirects.sh` confirms that the old addresse
 
 ## What CI checks
 
-`.github/workflows/checks.yml` runs on every pull request and on pushes to `main`. It runs the lint script's tests, the lint on every page, `mint validate`, and `mint broken-links`. The lint checks each page's header, its title against its kind, link text, the ending, length, pictures, and the style guides' word rules.
+`.github/workflows/checks.yml` runs on every pull request and on pushes to `main`. It runs the lint script's tests, the lint on every page, `mint validate`, and `mint broken-links`. It uses the `mint` version pinned in `package.json`, not the newest release, because a new release can briefly need parts npm does not have yet. Bump the pin on purpose: change the version, run `npm install`, and commit the lockfile. The lint checks each page's header, its title against its kind, link text, the ending, length, pictures, and the style guides' word rules.
 
 ## How changes publish
 
