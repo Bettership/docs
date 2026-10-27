@@ -1,47 +1,50 @@
 ---
 title: "Use what you made in your AI tools"
-description: "Connect Claude to Bettership so it can read your Library and use the items you publish."
+description: "Connect Claude to Bettership so it can read your Library and use the items Maker makes for your AI tools."
 kind: task
 checked_against:
   - app 0.1.4
-checked_on: 2026-10-21
+  - app 0.1.5
+checked_on: 2026-10-26
 ---
 
-When you're done, Claude can read your Library and use the prompts, context packs, and skills you publish from the Studio.
+When you're done, Claude can read your Library and use what Maker makes for them.
 
 ## Before you start
 
 - A Plus or Max plan. Beta access counts.
 - The Claude desktop app.
-- A prompt, context pack, or skill you made with Maker, if you want Claude to use one.
 
 ## Connect Claude
 
-1. In the desktop app, open **Settings → Connectors & MCP** and copy the address under "Add this address as a remote MCP server in your AI tool": `https://api.bettership.ai/mcp`.
+1. In the desktop app, open **Settings → Connectors & MCP** and copy the address it shows: `https://api.bettership.ai/mcp`.
 2. In the Claude desktop app, choose **Customize** in Claude's sidebar, then the **Connectors** tab.
 3. Choose **Add** at the top right, then **Add custom connector**.
 4. Enter Bettership in **Name** and the address in **MCP server URL**, then choose **Continue**.
-5. The next screen shows **Sign in now** and **Use Claude's published identity**, each already selected. Leave both selected and choose **Add**.
-6. Claude shows its Bettership connector page: "You're not connected to Bettership yet." Choose **Connect**. Your browser opens.
-7. If your browser shows a page asking "Finish connecting a connector?", choose **Continue connecting** on it.
-8. A Bettership page in your browser lists what Claude is asking to read: your Library, and the items you publish. Choose **Allow Access**.
+5. **Sign in now** and **Use Claude's published identity** are already selected. Leave them and choose **Add**.
+6. Claude's Bettership connector page says "You're not connected to Bettership yet." Choose **Connect**. Your browser opens.
+7. If your browser shows a page asking "Finish connecting a connector?", choose **Continue connecting**.
+8. A Bettership page in your browser lists what Claude is asking to read. Choose **Allow Access**.
 9. Sign in with **Continue with Google**, **Continue with Apple**, or **Email me a code**.
 10. On "Use this Bettership account?", check the email address and choose **Continue**. Your browser shows "Connected".
 
-Claude only reads. It doesn't add, change, or remove anything in Bettership.
+## Make an item for your AI tools
 
-## Publish an item
+1. In the desktop app, open **Apply → Studio** and choose **Make new**. The "Make something new" window opens.
+2. Under "How should it work?", choose **Through my Bettership connection**, not **A self-contained download**.
+3. Under "What should it do?", say what it's for.
+4. Choose **Make it**. Maker makes it in a chat, and your AI tools get it and its later versions.
+5. When the item's card in the chat reads "Live", open the item from **Apply → Studio**. Beside **Copy prompt** and **Download files**, a status button says whether your AI tools can read it. Before Claude is connected, it reads "Ready for your AI tools".
 
-1. In the desktop app, open **Apply → Studio** and choose the item you want Claude to use.
-2. Stay on the tab the item opens on, named for its kind, such as **Skill**.
-3. Under "Claude handoff prompt", beside **Copy prompt** and **Download files**, choose **Publish to AI tools**. A window lists the files to publish.
-4. Choose **Publish**. The button changes to **Published to AI tools**.
+Choose it to open a panel with:
 
-If **Publish to AI tools** isn't there, Claude isn't connected yet. Follow the steps under Connect Claude first.
+- **What your AI tools can read** lists the item's files.
+- **Pause automatic updates** holds later versions back until you choose **Turn on automatic updates**.
+- **Unpublish** takes it out of your AI tools. The button then reads "Not in your AI tools".
 
 ## Use it in Claude
 
-Start a new chat and ask for what you need. You might ask:
+In a new chat, ask for what you need. For example:
 
 - "What does my Bettership Library say about pricing?"
 - "Use my interview prep skill from Bettership on this job description."
