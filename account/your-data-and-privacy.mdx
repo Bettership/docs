@@ -4,8 +4,12 @@ description: "Understand what Bettership keeps and how to request a copy or a ch
 kind: idea
 checked_against:
   - doc docs/legal/privacy.md
-  - app 0.0.1
-checked_on: 2026-09-25
+  - file apps/api/app/agents/tool_authority.py
+  - file apps/api/app/services/search_topics.py
+  - file apps/desktop/src/renderer/pages/settings/SettingsDataPrivacyPage.tsx
+  - file apps/desktop/src/renderer/components/settings/registry.ts
+  - file apps/desktop/src/renderer/pages/settings/SettingsSignInPage.tsx
+checked_on: 2026-10-28
 ---
 
 Bettership keeps the material and context you bring so you can return to your learning and the agents can help from the same workspace.
@@ -17,6 +21,12 @@ This includes account and profile details, resources and extracted text, your no
 A capture can include its transcript, notes, screenshots, and images retained through **Watch window**. Transcripts are stored as spoken. Names, email addresses, and other personal details aren't automatically masked.
 
 Your material and relevant context are processed by the services Bettership uses to provide its features. Bettership also keeps diagnostic information to investigate errors and improve the product.
+
+## What Scout sends to a search engine
+
+When Scout looks for material on the web, it sends a search service a few words. They come from your message, the search topics on your Focus Areas, and a short list of public words: a format such as “course” or “podcast”, a level such as “beginner”, a platform name such as YouTube, or a recent year. Your notes, Library, and profile aren't sent.
+
+Bettership writes search topics so they say nothing about who you are. It removes your name, your employer, people in your workspace, links, email addresses, and numbers from them. You can read and edit them in **Settings → Focus areas**, under **Topics Scout can search for**. To stop Scout searching with them, turn off **Let Scout search the public web using your Focus Area topics** in **Settings → Data & privacy**. Scout then searches only with the words you type.
 
 ## Recordings and transcripts are different
 
@@ -34,6 +44,6 @@ A profile field, such as your name or role, is separate from a saved memory. Che
 
 A self-service account export isn't available yet. Email [privacy@bettership.ai](mailto:privacy@bettership.ai) to request a copy or help correcting personal data.
 
-Account deletion is under **Settings → Sign-in & security**. It is permanent, so request any copy you want before deleting. Bettership aims to complete the request within 30 days or one calendar month, whichever comes first. Some diagnostic logs, backups, and records kept for legal reasons have separate retention periods. Capture files on another computer need to be removed there as well.
+To delete your account, choose **Delete account** in **Settings → Sign-in & security**. Deletion is permanent, so request any copy you want before deleting. Bettership aims to complete the request within 30 days or one calendar month, whichever comes first. Some diagnostic logs, backups, and records kept for legal reasons have separate retention periods. Capture files on another computer need to be removed there as well.
 
 **Next:** [Where every setting lives](/account/where-every-setting-lives)
