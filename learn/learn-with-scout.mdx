@@ -6,7 +6,11 @@ checked_against:
   - file apps/api/app/scout/system_prompt.md
   - file apps/api/app/scout/suggestion_accept_tools.py
   - file apps/api/app/scout/discovery_tools.py
-checked_on: 2026-10-27
+  - file apps/api/app/agents/search_topic_tools.py
+  - file apps/api/app/agents/tool_authority.py
+  - file apps/desktop/src/renderer/components/scout/ScoutSuggestionCard.tsx
+  - file apps/desktop/src/renderer/lib/scoutSuggestionCards.ts
+checked_on: 2026-10-28
 ---
 
 Ask Scout to find, read, compare, and organize the resources you learn from, in your Library and on the web.
@@ -17,7 +21,7 @@ For example:
 
 - “What do I already have on product discovery?”
 - “Compare how these two articles approach customer interviews.”
-- “Find a recent podcast episode about pricing research.”
+- “Help me find a good course for my Focus Areas.”
 - “Add those to my Pricing research collection.”
 
 Name resources by title, or attach them to your message.
@@ -30,7 +34,11 @@ Open **Learn → Scout** for a full conversation. In Learn, **Agent chat** at th
 
 **Searches and reads your Library.** Scout finds what you already have, reads your resources and the notes and highlights you made on them, and compares them.
 
-**Finds new material.** When you ask, Scout searches the web and shows what it found as cards in the conversation, each with a reason it fits you. Nothing is added until you say so. Choose **Add to Library** on a card, or ask Scout in a later message to add some or all of the cards it showed you, and name a collection if you want them filed there. Scout adds them, files them in the same step, and names each one it added. Each add spends credits, like any resource you add.
+**Finds new material.** Ask for material toward something you're working on, and Scout checks your Library, then goes looking in the same reply. You don't need to say “search” or approve one. Scout searches with your words and the search topics on your Focus Areas, and also checks public resources Bettership has already processed. It shows what it found as cards in the conversation, each with a reason it fits you. A line under the cards names what Scout searched for and where. A card marked “Ready to read now” is already in Bettership, so you can read it as soon as you add it. When topic search is off in **Settings → Data & privacy**, Scout searches only with the words you type.
+
+Nothing is added until you say so. Choose **Add to Library** on a card, or ask Scout in a later message to add some or all of the cards it showed you, and name a collection if you want them filed there. Scout adds them, files them in the same step, and names each one it added. Each add spends credits, like any resource you add.
+
+**Keeps your search topics.** Scout can add, remove, or reset the search topics on a Focus Area when you ask. See [Focus Areas](/focus/focus-areas) for what search topics are.
 
 **Organizes when you ask.** Scout can create and edit the collections you made yourself, file resources into them, and manage the podcasts, newsletters, and channels you follow.
 
