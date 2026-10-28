@@ -8,6 +8,11 @@ checked_against:
   - file apps/api/app/scout/discovery_tools.py
   - file apps/api/app/agents/search_topic_tools.py
   - file apps/api/app/agents/tool_authority.py
+  - file apps/desktop/src/renderer/pages/settings/SettingsDataPrivacyPage.tsx
+  - file apps/api/app/services/course_pages.py
+  - file apps/api/app/services/course_facts.py
+  - file apps/api/app/services/course_collections.py
+  - file apps/api/app/services/scout_suggestion_acceptance.py
   - file apps/desktop/src/renderer/components/scout/ScoutSuggestionCard.tsx
   - file apps/desktop/src/renderer/lib/scoutSuggestionCards.ts
 checked_on: 2026-10-28
@@ -24,7 +29,7 @@ For example:
 - “Help me find a good course for my Focus Areas.”
 - “Add those to my Pricing research collection.”
 
-Name resources by title, or attach them to your message.
+Name resources by title in your ask.
 
 ## Where to find Scout
 
@@ -32,18 +37,20 @@ Open **Learn → Scout** for a full conversation. In Learn, **Agent chat** at th
 
 ## What Scout does
 
-**Searches and reads your Library.** Scout finds what you already have, reads your resources and the notes and highlights you made on them, and compares them.
+**Searches and reads your Library.** Scout finds what you have, reads your resources and your notes and highlights on them, and compares them.
 
-**Finds new material.** Ask for material toward something you're working on, and Scout checks your Library, then goes looking in the same reply. You don't need to say “search” or approve one. Scout searches with your words and the search topics on your Focus Areas, and also checks public resources Bettership has already processed. It shows what it found as cards in the conversation, each with a reason it fits you. A line under the cards names what Scout searched for and where. A card marked “Ready to read now” is already in Bettership, so you can read it as soon as you add it. When topic search is off in **Settings → Data & privacy**, Scout searches only with the words you type.
+**Finds new material.** Ask for material toward something you're working on, and Scout checks your Library, then searches, with nothing for you to type or approve. It uses your words and the search topics on your Focus Areas, and checks public resources Bettership has already processed. Each find is a card with a reason it fits you. A card marked “Ready to read now” is already in Bettership. To stop Scout searching with your topics, turn off **Let Scout search the public web using your Focus Area topics** in **Settings → Data & privacy**.
 
-Nothing is added until you say so. Choose **Add to Library** on a card, or ask Scout in a later message to add some or all of the cards it showed you, and name a collection if you want them filed there. Scout adds them, files them in the same step, and names each one it added. Each add spends credits, like any resource you add.
+Nothing is added until you say so. Choose **Add to Library** on a card, or ask Scout later to add cards and file them in a collection. Each add spends credits.
+
+**Finds courses.** Ask for a course, or name Maven, Coursera, edX, or LinkedIn Learning. Scout reads each course's page before showing it, so the card shows only what that page says: who offers and teaches it, format, level, length, rating with its review count, and price. **Open on** and the platform, such as **Open on Coursera**, goes to the course. **Save course** makes a collection for the course, with a link to its page. Saving adds nothing to your Library and spends no credits.
 
 **Keeps your search topics.** Scout can add, remove, or reset the search topics on a Focus Area when you ask. See [Focus Areas](/focus/focus-areas) for what search topics are.
 
 **Organizes when you ask.** Scout can create and edit the collections you made yourself, file resources into them, and manage the podcasts, newsletters, and channels you follow.
 
-**Helps with your Inbox.** Tell Scout which items in your Inbox to keep in your Library and which to dismiss. Scout moves only what you name, and leaves everything else where it is.
+**Helps with your Inbox.** Tell Scout which Inbox items to keep in your Library and which to dismiss. It moves only what you name.
 
-**Writes a report on a resource.** On each resource's page, Scout's report says what the resource offers and how it relates to your Focus Areas. You can ask Scout to take another look, or to retry a resource that failed to process.
+**Writes a report on a resource.** On each resource's page, Scout's report says what the resource offers and how it relates to your Focus Areas. Ask Scout to take another look, or to retry a resource that failed to process.
 
 **Next:** [Add a resource](/learn/add-a-resource)
