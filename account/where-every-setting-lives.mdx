@@ -3,11 +3,14 @@ title: "Where every setting lives"
 description: "Know where to change your profile, preferences, and account details."
 kind: lookup
 checked_against:
-  - app 0.1.0
   - file apps/desktop/src/renderer/lib/billingPage.ts
   - file apps/desktop/src/renderer/components/settings/registry.ts
   - file apps/desktop/src/renderer/pages/settings/SettingsDownloadsPage.tsx
-checked_on: 2026-10-02
+  - file apps/desktop/src/renderer/components/settings/FocusAreaSearchTopics.tsx
+  - file apps/desktop/src/renderer/components/grounding/FocusAreaCard.tsx
+  - file apps/desktop/src/renderer/pages/settings/SettingsDataPrivacyPage.tsx
+  - file apps/desktop/src/renderer/lib/marketingConsent.ts
+checked_on: 2026-10-28
 ---
 
 Open **Settings** with the gear icon at the bottom of the left sidebar, to the right of your name and initials. Settings lists its pages in a column on the left, grouped under Personal, Workspace, Account, and Support. Choose **Back to app** at the top of that column when you're finished.
@@ -16,7 +19,7 @@ Open **Settings** with the gear icon at the bottom of the left sidebar, to the r
 
 **Profile** holds details such as your name, role, and preferred AI tools. **Manage memories**, inside Profile, lets you review and correct what Bettership remembers about you.
 
-**Focus areas** is where you manage what you want to get better at. Steward can help you define or change a direction in conversation.
+**Focus areas** is where you manage what you want to get better at. Choose **Expand** on an active Focus Area to see **Topics Scout can search for**, the search topics Scout uses for that area, and to add, edit, or remove them. Steward can help you define or change a direction in conversation.
 
 ## Workspace
 
@@ -33,6 +36,8 @@ Open **Settings** with the gear icon at the bottom of the left sidebar, to the r
 **Sign-in & security** contains your email, sign-in method, sign-out action, and account deletion.
 
 **Usage** shows your credits, which are used for adding resources, live captures, and some agent actions. It shows what's left this month, anything carried over, and any extra credits. It also shows your plan's limits on Focus Areas and playbooks, and a list of recent activity with what each action used.
+
+**Data & privacy** holds whether Bettership emails you occasional updates and tips about new features, and the switch **Let Scout search the public web using your Focus Area topics**, which is on by default. With it off, Scout searches only with the words you type.
 
 To request a copy of your personal data, email [privacy@bettership.ai](mailto:privacy@bettership.ai).
 
