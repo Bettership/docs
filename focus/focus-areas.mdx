@@ -5,7 +5,11 @@ kind: idea
 checked_against:
   - doc docs/product/product-picture-2026-07-14.md
   - doc docs/product/agent-steward.md
-checked_on: 2026-09-25
+  - file apps/api/app/services/search_topics.py
+  - file apps/api/app/services/search_topics_prompt.md
+  - file apps/api/app/agents/search_topic_tools.py
+  - file apps/desktop/src/renderer/components/settings/FocusAreaSearchTopics.tsx
+checked_on: 2026-10-28
 ---
 
 A Focus Area names something you want to get better at. It gives the Bettership agents a reason to connect resources, questions, and practice around you.
@@ -29,6 +33,14 @@ The reason helps the agents judge what is relevant. It doesn't turn Bettership i
 You don't need a list of subskills, a mastery score, or a syllabus. Start with the direction and why it matters. Steward can help you make the definition clearer, and you can change it as you learn.
 
 A useful definition gives the agents more than a topic. “Negotiation” names a subject. “Stay clear about my priorities when a client pushes back on scope” names something you want to become able to do.
+
+## Search topics let Scout look for you
+
+Each Focus Area carries a few short public phrases, its search topics, such as “pricing strategy” or “giving difficult feedback”. Scout searches the web with them when you ask it to find material, so you don't have to type a search.
+
+Bettership writes them from the Focus Area's name and description, never from private details you shared. It removes names, employers, people in your workspace, links, email addresses, and numbers. An area holds up to five topics of up to six words each.
+
+You can read and change them in **Settings → Focus areas**, or ask Scout or Steward to add, remove, or reset them. Once you edit them, Bettership stops rewriting them. To stop Scout using them, turn off topic search in **Settings → Data & privacy**.
 
 ## How many should you have?
 
