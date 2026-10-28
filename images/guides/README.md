@@ -3,7 +3,6 @@
 Captured from Bettership Staging 0.0.1-staging.12 on 2026-09-25 through the native app UI. Screenshots are cropped only; no UI elements or labels were generated, altered, or rearranged. These demonstrate visible controls, not completed end-to-end verification of each guide.
 
 - add-resource.png: empty Add resource dialog, Link tab.
-- add-to-collection.png: resource metadata controls, including + Collection.
 
 No account identifiers, chat history, private notes, transcript text, or recording content is included. Empty forms were closed without saving. The already-paused capture was not resumed, finished, or discarded.
 
