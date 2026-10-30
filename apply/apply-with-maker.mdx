@@ -1,32 +1,44 @@
 ---
 title: "Apply with Maker"
-description: "Turn your learning into prompts, context packs, and skills you can reuse."
+description: "Turn your learning into prompts, context packs, skills, and subagents for your AI tools."
 kind: agent
 checked_against:
   - file apps/api/app/maker/system_prompt.md
-checked_on: 2026-09-25
+  - file apps/api/app/maker/artifact_tools.py
+  - file apps/api/app/maker/publication_tools.py
+  - file apps/api/app/maker/production/__init__.py
+checked_on: 2026-10-29
 ---
 
-Maker helps carry what you're learning into the AI tools you use for your work.
+Ask Maker to turn what you're learning into something you use in the AI tools you work in.
 
-## What you can make
+## What to ask
 
-- A **prompt** gives an AI tool reusable instructions for a particular job.
-- A **context pack** gives it relevant background about you, your knowledge, or your approach.
-- A **skill** packages a method with instructions and references, such as a way to critique interview questions against what your resources teach.
+For example:
 
-Example ask: “Use these interview guides to make a prompt that helps me spot leading questions. I'll use it in ChatGPT.”
+- “Use these interview guides to make a prompt that helps me spot leading questions. I'll use it in ChatGPT.”
+- “Make a skill that scores my product specs against what my product resources teach.”
+- “Make me a startup advisor from my reading, and use my plan review skill in it.”
+- “Update my interview prep skill with what's new in my Library.”
 
-Tell Maker what the result should help you do, where you'll use it, and which resources to draw from. Maker can read the shared workspace to fill in relevant context.
-
-## From a draft to something useful
-
-For a skill, Maker proposes what to make and waits for your agreement. A direct request for a prompt can go straight into production.
-
-The result has saved files, the resources it drew on, and instructions for using it. You can ask for revisions, with earlier versions preserved. Review both the result and any demo before relying on it.
+Say what the result should help you do, where you'll use it, and which resources to draw from.
 
 ## Where to find Maker
 
-Open **Apply → Maker** for a conversation. The **Studio** holds Maker's drafts alongside items you've already made. A draft is an idea for something to make, not a finished item.
+Open **Apply → Maker** for a conversation. The **Studio** holds Maker's drafts alongside the items you've already made.
+
+## What Maker does
+
+**Makes four kinds of item.** A **prompt** gives an AI tool reusable instructions for one job. A **context pack** gives it background about you and how you work. A **skill** packages a method, with references, such as a way to critique interview questions. A **subagent** is a specialist: a role and the skills it uses, packaged together. Subagents are part of Plus and Max.
+
+**Proposes before a bigger item.** For a skill or a subagent, Maker says what it would make, from which resources, and what it's assuming, then waits for your go-ahead. A direct ask for a prompt can go straight to making it.
+
+**Shows the result.** Each item has saved files, the resources it drew on, and how to use it. A prompt, skill, or subagent also comes with a demo run on your own material. Maker reads it back and names its weakest part.
+
+**Reuses what you made.** Name a skill you've already made, and Maker copies it into a subagent unchanged. A later change to that skill reaches the subagent the next time you ask Maker to revise it.
+
+**Revises on request.** Say what should change, and Maker makes a new version. Earlier versions stay.
+
+**Makes items for your AI tools.** Once an AI tool is connected to Bettership, as [Use what you made in your AI tools](/apply/use-what-you-made-in-your-ai-tools) shows, ask for an item that works through that connection. It reaches your AI tools as soon as it's made, along with its later versions. A subagent's page in the Studio says where it works: some tools run it as a separate subagent, some take on its role for a conversation, and some take a version of the role you paste into their instructions.
 
 **Next:** [Prompts, context packs, and skills](/apply/prompts-context-packs-and-skills)
