@@ -8,6 +8,7 @@ checked_against:
   - file apps/api/app/services/billing_usage.py
   - file apps/api/app/services/billing_plan_state.py
   - file apps/api/app/services/artifact_production.py
+  - file apps/api/app/maker/production/runner.py
   - file apps/api/app/agents/billing_reads.py
   - file apps/api/app/agents/detail_reads.py
   - file apps/api/app/steward/system_prompt_v2.md
@@ -18,7 +19,7 @@ checked_against:
   - file apps/desktop/src/renderer/lib/billingPage.ts
   - file apps/desktop/src/renderer/lib/billingCopy.ts
   - file apps/desktop/src/renderer/components/session/SessionPageHeader.tsx
-checked_on: 2026-10-28
+checked_on: 2026-10-30
 ---
 
 Credits pay for bringing things into Bettership and for making things. Talking with the agents and practicing don't use them.
@@ -54,7 +55,7 @@ Adding a podcast, recording a course session, and asking Coach for a cheat sheet
     <tr>
       <td>Maker Studio items (prompts, context packs, skills, and subagents)</td>
       <td>A few credits, more for a skill or a subagent</td>
-      <td>Prompt = 1 credit<br />Skill = 3 credits</td>
+      <td>Prompt = 1 credit<br />Skill = 3 credits<br />Revising any item = 1 credit</td>
     </tr>
     <tr>
       <td>Make practice materials with Coach</td>
@@ -71,7 +72,7 @@ Adding a podcast, recording a course session, and asking Coach for a cheat sheet
 
 Practice materials a playbook prepares on its own cost nothing. Each exact cost shows once the work is done, in Usage.
 
-A capture is charged once, when it's saved, and its cost shows in **Settings → Account → Usage**. You can start one with any credits left. With none, it doesn't start, and the app offers extra credits or a plan instead. A capture that runs out of credits partway still finishes in full, and the extra time costs nothing.
+A capture is charged once, when it's saved. You can start one with any credits left. With none, it doesn't start, and the app offers extra credits or a plan instead. A capture that runs out of credits partway still finishes in full, and the extra time costs nothing.
 
 ## What each plan includes
 
