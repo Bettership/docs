@@ -7,7 +7,10 @@ checked_against:
   - file apps/api/app/maker/artifact_tools.py
   - file apps/api/app/maker/publication_tools.py
   - file apps/api/app/maker/production/__init__.py
-checked_on: 2026-10-29
+  - file apps/api/app/maker/production/runner.py
+  - file apps/desktop/src/renderer/lib/sectionNavigation.ts
+  - file apps/desktop/src/renderer/components/artifact/ArtifactPublicationAction.tsx
+checked_on: 2026-10-30
 ---
 
 Ask Maker to turn what you're learning into something you use in the AI tools you work in.
@@ -25,7 +28,7 @@ Say what the result should help you do, where you'll use it, and which resources
 
 ## Where to find Maker
 
-Open **Apply → Maker** for a conversation. The **Studio** holds Maker's drafts alongside the items you've already made.
+Choose **Apply** in the sidebar, then **Maker** for a conversation, or **Studio** for Maker's drafts and the items you've already made.
 
 ## What Maker does
 
@@ -35,10 +38,10 @@ Open **Apply → Maker** for a conversation. The **Studio** holds Maker's drafts
 
 **Shows the result.** Each item has saved files, the resources it drew on, and how to use it. A prompt, skill, or subagent also comes with a demo run on your own material. Maker reads it back and names its weakest part.
 
-**Reuses what you made.** Name a skill you've already made, and Maker copies it into a subagent unchanged. A later change to that skill reaches the subagent the next time you ask Maker to revise it.
+**Reuses what you made.** Name a skill you've already made in your ask, and Maker copies it into a subagent unchanged. In the subagent's files, it reads "Copied unchanged from a skill you made." A later change to that skill reaches the subagent the next time you ask Maker to revise it.
 
-**Revises on request.** Say what should change, and Maker makes a new version. Earlier versions stay.
+**Revises on request.** Say what should change, and Maker makes a new version. It changes only the files your request needs and keeps the rest as they were. Earlier versions stay.
 
-**Makes items for your AI tools.** Once an AI tool is connected to Bettership, as [Use what you made in your AI tools](/apply/use-what-you-made-in-your-ai-tools) shows, ask for an item that works through that connection. It reaches your AI tools as soon as it's made, along with its later versions. A subagent's page in the Studio says where it works: some tools run it as a separate subagent, some take on its role for a conversation, and some take a version of the role you paste into their instructions.
+**Makes items for your AI tools.** Once an AI tool is connected to Bettership, as [Use what you made in your AI tools](/apply/use-what-you-made-in-your-ai-tools) shows, ask Maker to make the item for use in your AI tools. Its page in the Studio then reads "Available in your AI tools," and it reaches them as soon as it's made, along with its later versions. A subagent's page in the Studio also says how each tool takes it.
 
 **Next:** [Prompts, context packs, and skills](/apply/prompts-context-packs-and-skills)
