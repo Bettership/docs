@@ -7,7 +7,8 @@ checked_against:
   - file apps/api/app/maker/artifact_tools.py
   - file apps/api/app/maker/publication_tools.py
   - file apps/api/app/maker/production/__init__.py
-checked_on: 2026-10-29
+  - file apps/api/app/maker/production/runner.py
+checked_on: 2026-10-30
 ---
 
 Ask Maker to turn what you're learning into something you use in the AI tools you work in.
@@ -37,7 +38,7 @@ Open **Apply → Maker** for a conversation. The **Studio** holds Maker's drafts
 
 **Reuses what you made.** Name a skill you've already made, and Maker copies it into a subagent unchanged. A later change to that skill reaches the subagent the next time you ask Maker to revise it.
 
-**Revises on request.** Say what should change, and Maker makes a new version. Earlier versions stay.
+**Revises on request.** Say what should change, and Maker makes a new version. It changes only the files your request needs and keeps the rest as they were. Earlier versions stay.
 
 **Makes items for your AI tools.** Once an AI tool is connected to Bettership, as [Use what you made in your AI tools](/apply/use-what-you-made-in-your-ai-tools) shows, ask for an item that works through that connection. It reaches your AI tools as soon as it's made, along with its later versions. A subagent's page in the Studio says where it works: some tools run it as a separate subagent, some take on its role for a conversation, and some take a version of the role you paste into their instructions.
 
