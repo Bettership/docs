@@ -5,19 +5,30 @@ kind: idea
 checked_against:
   - doc docs/product/agent-maker.md
   - file apps/api/app/maker/system_prompt.md
+  - file apps/desktop/src/renderer/components/artifact/ArtifactWhereItWorks.tsx
+  - file apps/api/app/maker/production/subagent_render.py
+  - file apps/desktop/src/renderer/components/settings/SubagentInstallsCard.tsx
+  - file apps/desktop/src/main/subagent-installer.ts
+  - file apps/desktop/src/renderer/components/artifact/ArtifactFilesTab.tsx
   - doc docs/legal/privacy.md
-checked_on: 2026-09-25
+checked_on: 2026-10-30
 ---
 
-Making something useful shouldn't mean it only works inside Bettership. Maker creates prompts, context packs, and skills you can carry into your own AI tools.
+Making something useful shouldn't mean it only works inside Bettership. Maker creates prompts, context packs, skills, and subagents you can carry into your own AI tools.
 
 ## Made items have files
 
 A reusable prompt carries instructions you can use again. A context pack gives another AI tool relevant background. A skill packages an approach you want that tool to follow.
 
-Maker's items keep the resources they drew on visible and can accumulate revised versions. Their files and use instructions help you take the work elsewhere for personal use.
+Each item has its own page in **Apply → Studio**, with the resources it drew on, its revised versions, and its files. Its **Download files** button gives you the files and use instructions, to take the work elsewhere for personal use.
 
-Downloading files doesn't install them in another tool. You still place or attach them there and follow the instructions for that tool. Maker can explain the steps, but there is no automatic sync or scheduled refresh.
+Downloading files doesn't install them in another tool. You still place or attach them there and follow the instructions for that tool. Maker can explain the steps. The one thing the desktop app installs for you is a subagent, below.
+
+## A subagent is a specialist
+
+A skill is one method. A subagent is a specialist built from your learning that knows which of its skills to use for what: a role, the skills it uses, and only the background it needs, packaged together. A startup advisor might pressure-test a plan with one skill and turn a growth idea into a first step with another.
+
+AI tools take a subagent in different ways. Claude Code, Cursor, and Codex run it as a separate subagent once its install file for that tool is in the tool's agents folder. The desktop app puts it there once you turn on that tool's switch, such as **Claude Code**, under “Install subagents into tools on this computer” in **Settings → Connectors & MCP**. The subagent's page then reads “Installed in Claude Code.” The app keeps the file up to date, takes it out when you unpublish the subagent or turn the tool off, and never changes a copy you've edited. You can also save the file yourself: the subagent's README names each folder. Claude chat and ChatGPT take on its role for one conversation when you ask for it by name, once they're connected to Bettership as [Use what you made in your AI tools](/apply/use-what-you-made-in-your-ai-tools) shows. An always-on agent, such as Grok Bot, takes a version of the role pasted into its instructions. A subagent's page lists these ways under “Where it works,” and each of its install files says which tools it's for.
 
 ## Personal use has a boundary
 
