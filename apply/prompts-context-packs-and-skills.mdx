@@ -1,41 +1,35 @@
 ---
 title: "Prompts, context packs, and skills"
-description: "Use what you've made beyond Bettership."
+description: "What Maker can make from your learning, and which kind fits what you want your AI tools to do."
 kind: idea
 checked_against:
   - doc docs/product/agent-maker.md
-  - file apps/api/app/maker/system_prompt.md
-  - file apps/desktop/src/renderer/components/artifact/ArtifactWhereItWorks.tsx
-  - file apps/api/app/maker/production/subagent_render.py
-  - file apps/desktop/src/renderer/components/settings/SubagentInstallsCard.tsx
-  - file apps/desktop/src/main/subagent-installer.ts
-  - file apps/desktop/src/renderer/components/artifact/ArtifactFilesTab.tsx
-  - doc docs/legal/privacy.md
-checked_on: 2026-10-30
+  - file apps/api/app/maker/kinds.py
+  - file apps/api/app/maker/production/prompt_recipe.md
+  - file apps/api/app/maker/production/context_pack_recipe.md
+  - file apps/api/app/maker/production/skill_recipe.md
+  - file apps/api/app/maker/production/subagent_recipe.md
+checked_on: 2026-11-03
 ---
 
-Maker creates prompts, context packs, skills, and subagents you can carry into your own AI tools.
+Maker can make four kinds of item for the AI tools you work in, and each fits a different job. Knowing them helps you ask for the one you need. To get one made, ask Maker in **Apply → Maker**, or start it from **Apply → Studio**, where your items are kept.
 
-## Made items have files
+Say you've finished a course on writing product specs, and next week you're drafting one in Claude. On its own, Claude knows nothing about the course. You'd paste in your notes, explain the framework again, and hope it sticks. With something Maker made from that course, Claude already has it. As you learn more, Maker can revise what it made, and when it's connected to your AI tools, they get the new version.
 
-A reusable prompt carries instructions you can use again. A context pack gives another AI tool relevant background. A skill packages an approach you want that tool to follow.
+## A prompt does one job
 
-Each item has its own page in **Apply → Studio**, with the resources it drew on, its revised versions, and its files. Its **Download files** button gives you the files and use instructions, to take the work elsewhere for personal use.
+A prompt is a set of instructions for a task you do again and again, like getting ready for a customer interview. You paste it into the tool, or ask for it by name once the tool is connected to Bettership, and the tool does the job the way your resources taught it. [Use what you made in your AI tools](/apply/use-what-you-made-in-your-ai-tools) covers connecting.
 
-Downloading files doesn't install them in another tool. You still place or attach them there and follow the instructions for that tool. Maker can explain the steps. The one thing the desktop app installs for you is a subagent, below.
+## A context pack is background about you
+
+A context pack tells an AI tool who you are, what you know about a topic, and how you work, drawn from your Library, everything you've added to Bettership. With it in place, you stop explaining yourself every time you start a new chat, and answers fit your situation.
+
+## A skill is a method you run on your own work
+
+A skill takes a method an expert taught and turns it into something you run on your own work. For example, a skill might score your product spec against the principles you've been learning, name its weakest parts, and suggest a rewrite. A prompt handles one moment. A skill applies a whole method, with the scoring guide or checklist it needs.
 
 ## A subagent is a specialist
 
-A skill is one method. A subagent is a specialist built from your learning that knows which of its skills to use for what: a role, the skills it uses, and only the background it needs, packaged together. A startup advisor might pressure-test a plan with one skill and turn a growth idea into a first step with another.
-
-AI tools take a subagent in different ways. Claude Code, Cursor, and Codex run it as a separate subagent once its install file for that tool is in the tool's agents folder. The desktop app puts it there once you turn on that tool's switch, such as **Claude Code**, under “Install subagents into tools on this computer” in **Settings → Connectors & MCP**. The subagent's page then reads “Installed in Claude Code.” A subagent made for your AI tools is published as soon as Maker finishes it. The app keeps the file up to date, takes it out if you unpublish the subagent or turn the tool off, and never changes a copy you've edited. You can also save the file yourself: the subagent's README names each folder. Claude chat and ChatGPT take on its role for one conversation when you ask for it by name, once they're connected to Bettership as [Use what you made in your AI tools](/apply/use-what-you-made-in-your-ai-tools) shows. An always-on agent, such as Grok Bot, takes the role pasted into its instructions. On the subagent's page, under “Where it works,” **Copy role for Grok Bot** copies it. When the agent is connected to Bettership, it keeps loading the subagent's current skills, while the pasted text changes only when you paste it again. “Where it works” lists all these ways.
-
-## Personal use has a boundary
-
-“Yours to keep for personal use” doesn't give you ownership of someone else's book, course, or method. Keep the rights attached to the original material in mind when using or sharing an output.
-
-## A made item isn't an account export
-
-Downloading Maker's files is different from taking a copy of all the personal data in your Bettership account. A self-service account export isn't available yet. You can request a copy by emailing [privacy@bettership.ai](mailto:privacy@bettership.ai).
+A subagent brings together a role (who it acts as, and when it's the right one to call on), the skills it uses, and only the background it needs. For example, a startup advisor built from your reading might review a plan with one skill and turn a growth idea into a first step with another. You ask it for help, and it works out which of its skills fits. Subagents are part of the Plus and Max plans.
 
 **Next:** [Apply with Maker](/apply/apply-with-maker)
