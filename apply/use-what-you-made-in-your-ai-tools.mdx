@@ -1,14 +1,15 @@
 ---
 title: "Use what you made in your AI tools"
-description: "Connect Claude to Bettership so it can read your Library and use the items Maker makes for your AI tools."
+description: "Connect Claude to Bettership so it can read your Library and use the items Maker makes for it."
 kind: task
 checked_against:
   - app 0.1.4
   - app 0.1.5
-checked_on: 2026-10-26
+  - app 0.1.6
+checked_on: 2026-11-03
 ---
 
-When you're done, Claude can read your Library and use what Maker makes for them.
+When you're done, Claude can read your Library and use what Maker makes for it, by name in any chat.
 
 ## Before you start
 
@@ -17,44 +18,45 @@ When you're done, Claude can read your Library and use what Maker makes for them
 
 ## Connect Claude
 
-1. In the desktop app, open **Settings → Connectors & MCP** and copy the address it shows: `https://api.bettership.ai/mcp`.
-2. In the Claude desktop app, choose **Customize** in Claude's sidebar, then the **Connectors** tab.
-3. Choose **Add** at the top right, then **Add custom connector**.
-4. Enter Bettership in **Name** and the address in **MCP server URL**, then choose **Continue**.
-5. **Sign in now** and **Use Claude's published identity** are already selected. Leave them and choose **Add**.
-6. Claude's Bettership connector page says "You're not connected to Bettership yet." Choose **Connect**. Your browser opens.
-7. If your browser shows a page asking "Finish connecting a connector?", choose **Continue connecting**.
-8. A Bettership page in your browser lists what Claude is asking to read. Choose **Allow Access**.
-9. Sign in with **Continue with Google**, **Continue with Apple**, or **Email me a code**.
-10. On "Use this Bettership account?", check the email address and choose **Continue**. Your browser shows "Connected".
+1. In the desktop app, open **Settings → Connectors & MCP**. Copy the address it shows, `https://api.bettership.ai/mcp`.
+2. In the Claude desktop app, open **Customize → Connectors**.
+3. Choose **Add** at the top right of the Connectors tab.
+4. Choose **Add custom connector**.
+5. Enter Bettership in **Name** and the address in **MCP server URL**.
+6. Choose **Continue**. Claude has already selected **Sign in now** and **Use Claude's published identity**. Leave them.
+7. Choose **Add**. Claude opens its Bettership page, which says "You're not connected to Bettership yet."
+8. Choose **Connect**. Your browser opens. If it asks "Finish connecting a connector?", choose **Continue connecting**.
+9. On the Bettership page that lists what Claude is asking to read, choose **Allow Access**.
+10. Sign in with **Continue with Google**, **Continue with Apple**, or **Email me a code**.
+11. On "Use this Bettership account?", check the email address and choose **Continue**. Your browser shows "Connected".
 
-## Make an item for your AI tools
+## Make an item for Claude
 
-1. In the desktop app, open **Apply → Studio** and choose **Make new**. The "Make something new" window opens.
-2. Under "How should it work?", choose **Through my Bettership connection**, not **A self-contained download**.
-3. Under "What should it do?", say what it's for.
-4. Choose **Make it**. Maker makes it in a chat, and your AI tools get it and its later versions.
-5. When the item's card in the chat reads "Live", open the item from **Apply → Studio**. Beside **Copy prompt** and **Download files**, a status button says whether your AI tools can read it. Before Claude is connected, it reads "Ready for your AI tools".
-
-Choose it to open a panel with:
-
-- **What your AI tools can read** lists the item's files.
-- **Pause automatic updates** holds later versions back until you choose **Turn on automatic updates**.
-- **Unpublish** takes it out of your AI tools. The button then reads "Not in your AI tools".
+1. In the desktop app, open **Apply → Studio**.
+2. Choose **Make new** at the top right. The "Make something new" window opens.
+3. Under "How should it work?", choose **Through my Bettership connection**. The window says the item and its later versions reach your AI tools "as soon as it is made".
+4. Under "What should it do?", enter what it's for.
+5. Choose **Make it**. Maker's chat opens and Maker starts.
+6. Wait for the item's card in Maker's reply, showing its kind, its name, and "Live · 1 file". Claude can now use it.
 
 ## Use it in Claude
 
-In a new chat, ask for what you need. For example:
+In a new Claude chat, ask for what you need. For example:
 
 - "What does my Bettership Library say about pricing?"
 - "Use my interview prep skill from Bettership on this job description."
 
-Claude shows "Used Bettership" when it reads from your account, and names the resources it drew on.
+Claude shows "Used Bettership" when it reads your account, and names the resources it drew on.
+
+## Pause or remove an item
+
+Open **Apply → Studio** and choose the item's card. After **Copy prompt** and **Download files** is a third button, whose label says whether your AI tools can read the item. Choose it, then:
+
+- **Pause automatic updates** keeps later versions out of Claude. The same button then reads **Turn on automatic updates**.
+- **Unpublish** takes the item out of your AI tools. The button then reads "Not in your AI tools".
 
 ## Check it worked
 
-In the desktop app, **Settings → Connectors & MCP** lists the connection under "Authorized connections" as "Connected", with the time Claude last read from it.
-
-To stop Claude reading, choose **Disconnect** there or on the Bettership page in Claude's **Connectors** tab. Copies Claude already received stay in Claude.
+In the desktop app, **Settings → Connectors & MCP** lists the connection under "Authorized connections" as "Connected", with the time Claude last read from it. To stop Claude reading, choose **Disconnect** there. Claude keeps what it already received.
 
 **Next:** [Apply with Maker](/apply/apply-with-maker)
