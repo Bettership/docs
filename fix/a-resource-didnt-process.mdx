@@ -1,20 +1,44 @@
 ---
 title: "A resource didn't process"
-description: "Handle a step that fails while Bettership prepares a resource."
+description: "Get a resource working again when its tabs show a warning triangle."
 kind: fix
 checked_against:
-  - app 0.0.1-staging.12
-checked_on: 2026-09-25
+  - app 0.1.6
+checked_on: 2026-11-04
 ---
+
+A resource you added shows a warning triangle on its tabs instead of its summary or full text.
+
+## What you'll see
+
+Open the resource. **Summary** and **Scout's report** read "This part couldn't be prepared because an earlier step failed." The full-text tab says what went wrong first. It is called **Article** on a web page and **Text** on a PDF, and a podcast or video calls it Transcript. For example:
+
+- "The web extractor had a problem. Please try again." with a **Retry** button.
+- "This article was too short to process. It may be blocked or incomplete. Try pasting the text or uploading a PDF."
+- "We couldn't find any readable text in this PDF."
+
+## Why it happens
+
+Bettership couldn't get the text from the link or file. The summary and Scout's report are built from that text, so they wait for it. A message that says the page was too short, or that the PDF has no readable text, has no **Retry** button, because trying again would hit the same problem.
 
 ## What to do
 
-Open the view marked as needing attention and read its explanation. If **Summary** says an earlier step failed, check **Article** or **Transcript** for the original problem and its **Retry** button. Choose **Retry** to start another attempt. It doesn't guarantee the underlying access or processing problem is resolved.
+1. In the sidebar, choose **Learn**.
+2. Choose **Library**.
+3. Choose the resource that didn't process.
+4. Choose the full-text tab beside **Summary**: **Article** on a web page, **Text** on a PDF, or Transcript on a podcast or video.
+5. If the tab has a **Retry** button, choose it. The button reads "Retrying…" while Bettership tries again. If the problem is still there, the message comes back.
+6. If a web page or file has no **Retry** button, add the material another way. At the top of the window, choose **Add resource**.
+7. In the dialog, choose the **Upload** tab.
+8. Where it reads "Drop a file here, or choose one," drop the file there, or choose it. The dialog shows the file's name.
+9. In the dialog, choose **Add resource**. The dialog closes, a "Resource added" notice appears, and the new resource shows in your Library.
 
-You can also ask Scout, “The summary for this article failed. Can you retry it?” Scout can tell you which work restarted. Check the page for the result.
+## Or ask Scout
 
-If the material couldn't be read, check the original link or file. A private page, unavailable transcript, or missing saved input may need a different way of bringing it in.
+With the resource open, choose **Agent chat** at the top of the window. It opens a chat with Scout. Scout retries only the part you name: the content, the summary, or Scout's report. For example: "Retry the content for this resource." Scout says which part restarted.
 
-If **Article** says the page wasn't fully captured, saving the link or seeing a summary doesn't mean Bettership has the full text. Where you have permission, a file upload can give Bettership the material the link couldn't provide.
+## If that didn't work
+
+A podcast or video with no **Retry** button has no other fix on this page. For any resource, contact support with the exact message and the link or file name.
 
 **Next:** [Contact support](/fix/contact-support)
