@@ -6,7 +6,7 @@ checked_against:
   - app 0.1.4
   - app 0.1.5
   - app 0.1.6
-checked_on: 2026-11-03
+checked_on: 2026-11-06
 ---
 
 When you're done, Claude can read your Library and use what Maker makes for it, by name in any chat.
@@ -18,26 +18,27 @@ When you're done, Claude can read your Library and use what Maker makes for it, 
 
 ## Connect Claude
 
-1. In the desktop app, open **Settings → Connectors & MCP**. Copy the address it shows, `https://api.bettership.ai/mcp`.
-2. In the Claude desktop app, open **Customize → Connectors**.
-3. Choose **Add** at the top right of the Connectors tab.
+1. In the desktop app, open **Settings → Connectors & MCP** and copy the address it shows. It's `https://api.bettership.ai/mcp`.
+2. In the Claude desktop app, choose **Customize** in Claude's sidebar, then the **Connectors** tab.
+3. Choose **Add** at the top right.
 4. Choose **Add custom connector**.
-5. Enter Bettership in **Name** and the address in **MCP server URL**.
-6. Choose **Continue**. Claude has already selected **Sign in now** and **Use Claude's published identity**. Leave them.
-7. Choose **Add**. Claude opens its Bettership page, which says "You're not connected to Bettership yet."
-8. Choose **Connect**. Your browser opens. If it asks "Finish connecting a connector?", choose **Continue connecting**.
-9. On the Bettership page that lists what Claude is asking to read, choose **Allow Access**.
-10. Sign in with **Continue with Google**, **Continue with Apple**, or **Email me a code**.
-11. On "Use this Bettership account?", check the email address and choose **Continue**. Your browser shows "Connected".
+5. Enter Bettership in **Name**.
+6. Paste the address you copied in **MCP server URL**.
+7. Choose **Continue**. Claude has already selected **Sign in now** and **Use Claude's published identity**. Leave them.
+8. Choose **Add**. Claude opens its Bettership page, which says "You're not connected to Bettership yet."
+9. Choose **Connect**. Your browser opens. If it asks "Finish connecting a connector?", choose **Continue connecting**.
+10. On the Bettership page, choose **Allow Access**.
+11. Sign in with **Continue with Google**, **Continue with Apple**, or **Email me a code**.
+12. On "Use this Bettership account?", check the email address and choose **Continue**. Your browser shows "Connected".
 
 ## Make an item for Claude
 
 1. In the desktop app, open **Apply → Studio**.
 2. Choose **Make new** at the top right. The "Make something new" window opens.
-3. Under "How should it work?", choose **Through my Bettership connection**. The window says the item and its later versions reach your AI tools "as soon as it is made".
+3. Under "How should it work?", choose **Through my Bettership connection** rather than **A self-contained download**.
 4. Under "What should it do?", enter what it's for.
 5. Choose **Make it**. Maker's chat opens and Maker starts.
-6. Wait for the item's card in Maker's reply, showing its kind, its name, and "Live · 1 file". Claude can now use it.
+6. Maker shows a status line such as "Sizing this up…" while it works. Wait for the item's card in its reply, with "Live" on it. Claude can now use it.
 
 ## Use it in Claude
 
@@ -50,13 +51,15 @@ Claude shows "Used Bettership" when it reads your account, and names the resourc
 
 ## Pause or remove an item
 
-Open **Apply → Studio** and choose the item's card. After **Copy prompt** and **Download files** is a third button, whose label says whether your AI tools can read the item. Choose it, then:
+Open **Apply → Studio**, choose the item's card, then choose **…** at the top right. In the menu, choose **Available in your AI tools**. In the window that opens:
 
-- **Pause automatic updates** keeps later versions out of Claude. The same button then reads **Turn on automatic updates**.
-- **Unpublish** takes the item out of your AI tools. The button then reads "Not in your AI tools".
+- **Pause automatic updates** keeps later versions out of Claude.
+- **Unpublish** takes the item out of your AI tools.
+
+The desktop app also copies a published subagent into Claude Code, Cursor, and Codex when they're connected and on this computer. **Unpublish** takes those copies out too, except a file you've edited.
 
 ## Check it worked
 
-In the desktop app, **Settings → Connectors & MCP** lists the connection under "Authorized connections" as "Connected", with the time Claude last read from it. To stop Claude reading, choose **Disconnect** there. Claude keeps what it already received.
+In the desktop app, **Settings → Connectors & MCP** lists the connection under "Authorized connections" as "Connected". To stop Claude reading, choose **Disconnect** there. Claude keeps what it already received.
 
 **Next:** [Apply with Maker](/apply/apply-with-maker)
