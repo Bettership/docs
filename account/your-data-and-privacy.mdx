@@ -9,7 +9,10 @@ checked_against:
   - file apps/desktop/src/renderer/pages/settings/SettingsDataPrivacyPage.tsx
   - file apps/desktop/src/renderer/components/settings/registry.ts
   - file apps/desktop/src/renderer/pages/settings/SettingsSignInPage.tsx
-checked_on: 2026-10-28
+  - file apps/desktop/src/renderer/pages/settings/SettingsMemoriesPage.tsx
+  - file apps/desktop/src/renderer/lib/posthog.ts
+  - file apps/api/app/services/dossier.py
+checked_on: 2026-11-08
 ---
 
 Bettership keeps the material and context you bring so you can return to your learning and the agents can help from the same workspace.
@@ -20,23 +23,27 @@ This includes account and profile details, resources and extracted text, your no
 
 A capture can include its transcript, notes, screenshots, and images retained through **Watch window**. Transcripts are stored as spoken. Names, email addresses, and other personal details aren't automatically masked.
 
-Your material and relevant context are processed by the services Bettership uses to provide its features. Bettership also keeps diagnostic information to investigate errors and improve the product.
+Outside services process your material to provide these features. Bettership also keeps diagnostic information to investigate errors and improve the product.
+
+Session replay records how you use the desktop app, to show where something went wrong. What you type into fields and your own material are masked, and replays are kept for 30 days.
 
 ## What Scout sends to a search engine
 
-When Scout looks for material on the web, it sends a search service a few words. They come from your message, the search topics on your Focus Areas, and a short list of public words: a format such as “course” or “podcast”, a level such as “beginner”, a platform name such as YouTube, or a recent year. Your notes, Library, and profile aren't sent.
+When Scout looks for material on the web, it sends a search service a few words. They come from your message, the search topics on your Focus Areas, and a short list of public words, such as a format, a level, a platform name, or a recent year. Your notes, Library, and profile aren't sent.
 
-Bettership writes search topics so they say nothing about who you are. It removes your name, your employer, people in your workspace, links, email addresses, and numbers from them. You can read and edit them in **Settings → Focus areas**, under **Topics Scout can search for**. To stop Scout searching with them, turn off **Let Scout search the public web using your Focus Area topics** in **Settings → Data & privacy**. Scout then searches only with the words you type.
+Bettership removes your name, your employer, people in your workspace, links, email addresses, and numbers from search topics. You can read and edit them in **Settings → Focus areas**, under **Topics Scout can search for**. To stop Scout searching with them, turn off **Let Scout search the public web using your Focus Area topics** in **Settings → Data & privacy**. Scout then searches only with the words you type.
 
 ## Recordings and transcripts are different
 
-In the default capture mode, audio recordings are retained locally for seven days to help recover transcription. The app attempts cleanup when it starts, so files can remain longer if Bettership isn't opened or cleanup fails.
+Audio recordings normally stay on your computer for seven days to help recover transcription. The app clears old ones when it starts, so files can remain longer if Bettership isn't opened.
 
-Removing local audio doesn't remove the saved transcript. Transcripts, notes, and other workspace data remain in your account until you remove them or request account deletion.
+Removing local audio doesn't remove the saved transcript, which stays in your account until you remove it or request account deletion.
 
 ## Review or correct your personal context
 
 Open **Settings → Profile → Manage memories** to review saved memories. You can also ask Steward what it remembers and request a correction or removal.
+
+In **Settings → Data & privacy**, you can turn off **Let your Bettership agents keep memories about you**. The agents then stop adding what they infer or look up. What you tell them directly is still saved.
 
 A profile field, such as your name or role, is separate from a saved memory. Check the Profile page when you want that field changed too.
 
@@ -44,6 +51,6 @@ A profile field, such as your name or role, is separate from a saved memory. Che
 
 A self-service account export isn't available yet. Email [privacy@bettership.ai](mailto:privacy@bettership.ai) to request a copy or help correcting personal data.
 
-To delete your account, choose **Delete account** in **Settings → Sign-in & security**. Deletion is permanent, so request any copy you want before deleting. Bettership aims to complete the request within 30 days or one calendar month, whichever comes first. Some diagnostic logs, backups, and records kept for legal reasons have separate retention periods. Capture files on another computer need to be removed there as well.
+To delete your account, choose **Delete account** in **Settings → Sign-in & security**. Deletion is permanent, so request any copy first. Bettership aims to complete the request within 30 days or one calendar month, whichever comes first. Some diagnostic logs, backups, and records kept for legal reasons have separate retention periods. Capture files on another computer need to be removed there as well.
 
 **Next:** [Where every setting lives](/account/where-every-setting-lives)
